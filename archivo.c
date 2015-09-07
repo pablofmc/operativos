@@ -6,7 +6,7 @@ void leerArchivo() {
     while(!feof(arch)) {
             ch=(int)fgetc(arch);
             if(ch!='\n') {
-                    //laberinto[i][j]=ch;
+                    laberinto[i][j].valor = ch;
                     j++;
             } else {
                     j=0;

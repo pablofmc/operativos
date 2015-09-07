@@ -1,3 +1,4 @@
+
 #ifndef ESTRUCTURA_H
 #define	ESTRUCTURA_H
 #include <stdbool.h>
@@ -10,3 +11,4 @@ struct campo {
 };
 
 #endif	/* ESTRUCTURA_H */
+

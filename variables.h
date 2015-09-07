@@ -8,12 +8,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
 int i, j, ch, cont;
-char as , opc, jugarn;
+char as, opc, jugarn;
    
 FILE *arch;
 
+struct campo laberinto[FILA][COLUMNA];
 
 #endif	/* VARIABLES_H */
