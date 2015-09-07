@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>archivo.h</itemPath>
+      <itemPath>estructura.h</itemPath>
       <itemPath>hilo.h</itemPath>
       <itemPath>matriz.h</itemPath>
       <itemPath>variables.h</itemPath>
@@ -52,6 +53,8 @@
       </item>
       <item path="archivo.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="estructura.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="hilo.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="hilo.h" ex="false" tool="3" flavor2="0">
@@ -88,6 +91,8 @@
       <item path="archivo.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="archivo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="estructura.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="hilo.c" ex="false" tool="0" flavor2="0">
       </item>

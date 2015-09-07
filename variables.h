@@ -9,6 +9,7 @@
 #define	VARIABLES_H
 #define FILA 8
 #define COLUMNA 8
+#include "estructura.h"
 
 int i=0, j=0, ch, cont;
 char as = '*', opc, jugarn;

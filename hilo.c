@@ -1,4 +1,4 @@
-#include <hilo.h>
+#include "hilo.h"
 
 void born(int posX, int posY);
 void move(int posX, int posY);

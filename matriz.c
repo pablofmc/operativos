@@ -5,7 +5,7 @@ void generarMatriz() {
     {
             for(j=0;j<COLUMNA;j++)
             {
-                    laberinto[i][j] = 0;
+                    laberinto[i][j].valor = '0';
             }
     }
 
