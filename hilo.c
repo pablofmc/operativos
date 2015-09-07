@@ -1,17 +1,13 @@
 #include "hilo.h"
 #include <pthread.h>
 
-void born(int posX, int posY){
+void born(void *misargs){
     pthread_t tid;
-    int misargs[2];
 
     void *routine(void *arg);
 
     printf("Creando hilo...\n");
     fflush(stdout);
-
-    misargs[0] = 0;
-    misargs[1] = 0;
 
     pthread_create(&tid, NULL, routine, (void*) misargs);
 
@@ -20,7 +16,7 @@ void born(int posX, int posY){
 
     pthread_join(tid, NULL);
     fflush(stdout);
-    move((void*) misargs);
+    //move((void*) misargs);
     die();
 }
 
@@ -44,7 +40,7 @@ void die(){
 
 
 void evaluateProcreate(void *arg){
-    born(*arg);
+   
 }
 
 void waymark(int posX, int posY){
