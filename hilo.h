@@ -8,13 +8,6 @@
 #ifndef HILO_H
 #define	HILO_H
 
-struct {
-    int posX;
-    int posY;
-    bool estado;
-};
-
-
 void born(int posX, int posY);
 void move(int posX, int posY);
 void evaluarMovimiento(int posX, int posY);

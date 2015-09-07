@@ -7,6 +7,7 @@
 
 #ifndef ESTRUCTURA_H
 #define	ESTRUCTURA_H
+#include <stdbool.h>
 
 struct campo {
     char valor;
@@ -14,12 +15,6 @@ struct campo {
     bool abajo;
     bool derecha;
     bool izquierda;
-} campo = {
-    0,
-    false,
-    false,
-    false,
-    false
 };
 
 #endif	/* ESTRUCTURA_H */

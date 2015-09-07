@@ -12,12 +12,12 @@
 #include "archivo.h"
 
 void *mifuncion(void *arg) {
-	int *argu;
-	printf("Hilo hijo ejecutando...\n"); fflush(stdout);
-	argu = (int *)arg;
-	printf("Hilo hijo: arg.1=%d arg.2=%d.\n", argu[0], argu[1]);
-	printf("Hilo hijo finalizado.\n"); fflush(stdout);
-	pthread_exit(NULL);
+    int *argu;
+    printf("Hilo hijo ejecutando...\n"); fflush(stdout);
+    argu = (int *)arg;
+    printf("Hilo hijo: arg.1=%d arg.2=%d.\n", argu[0], argu[1]);
+    printf("Hilo hijo finalizado.\n"); fflush(stdout);
+    pthread_exit(NULL);
 }
 
 int main() {

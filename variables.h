@@ -10,13 +10,14 @@
 #define FILA 8
 #define COLUMNA 8
 #include "estructura.h"
+#include <stdio.h>
 
-int i=0, j=0, ch, cont;
-char as = '*', opc, jugarn;
+int i, j, ch, cont;
+char as, opc, jugarn;
    
 FILE *arch;
 
-campo laberinto[FILA][COLUMNA];
+struct campo laberinto[FILA][COLUMNA];
 
 #endif	/* VARIABLES_H */
 
