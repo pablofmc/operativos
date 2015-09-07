@@ -15,12 +15,14 @@
 
 
 int main() {
-    
+    int misargs[2];
+    misargs[0] = 0;
+    misargs[1] = 0;
     printf("      hola \n \n");
     generarMatriz();
     leerArchivo();
     imprimirMatriz();
-    born();
+    born((void*) misargs);
 
     return EXIT_SUCCESS;
 }

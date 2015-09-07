@@ -25,7 +25,7 @@ void move(void *arg){
     argu = (int *)arg;
     argu[0] = 0;
     argu[1] = 1;
-    evaluateProcreate(void *arg);
+    //evaluateProcreate(void *arg);
 }
 
 void evaluarMovimiento(int posX, int posY){
