@@ -28,7 +28,7 @@ void born(void *misargs){
     //evaluateProcreate(void *arg);
 }
 
-void evaluarMovimiento(int posX, int posY){
+void evaluarMovimiento(void *arg){
     
 }
 
