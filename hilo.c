@@ -1,4 +1,4 @@
-#include "hilo.h"
+#include <stdio.h>
 #include <pthread.h>
 
 void born(int posX, int posY){
@@ -19,17 +19,17 @@ void born(int posX, int posY){
     fflush(stdout);
 
     pthread_join(tid, NULL);
+    printf("kajshdkjads");
     fflush(stdout);
-    move((void*) misargs);
+    //move((void*) misargs);
     die();
 }
-
-void move(void *arg){
+/*id move(void *arg){
     int *argu;
     argu = (int *)arg;
     argu[0] = 0;
     argu[1] = 1;
-    evaluateProcreate(void *arg);
+    //evaluateProcreate(void *arg);
 }
 
 void evaluarMovimiento(int posX, int posY){
@@ -44,12 +44,12 @@ void die(){
 
 
 void evaluateProcreate(void *arg){
-    born(*arg);
+    //born(*arg);
 }
 
 void waymark(int posX, int posY){
     
-}
+}*/
 
 void *routine(void *arg) {
 	int *argu;

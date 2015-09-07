@@ -11,4 +11,3 @@ struct campo {
 };
 
 #endif	/* ESTRUCTURA_H */
-
