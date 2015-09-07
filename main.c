@@ -14,12 +14,12 @@
 
 
 int main() {
+    
     printf("      hola \n \n");
-
-    born(5,6);
     generarMatriz();
     leerArchivo();
     imprimirMatriz();
+    born();
 
     return EXIT_SUCCESS;
 }

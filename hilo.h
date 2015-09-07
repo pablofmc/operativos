@@ -19,8 +19,8 @@ struct {
 };
 
 
-void born(int posX, int posY);
-void move(int posX, int posY);
+void born();
+void move(void *arg);
 void evaluarMovimiento(int posX, int posY);
 void die();
 void procreate(int posX, int posY);

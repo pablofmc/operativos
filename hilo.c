@@ -10,8 +10,8 @@ void born(int posX, int posY){
     printf("Creando hilo...\n");
     fflush(stdout);
 
-    misargs[0] = -5;
-    misargs[1] =-6;
+    misargs[0] = 0;
+    misargs[1] = 0;
 
     pthread_create(&tid, NULL, routine, (void*) misargs);
 
@@ -20,24 +20,31 @@ void born(int posX, int posY){
 
     pthread_join(tid, NULL);
     fflush(stdout);
+    move((void*) misargs);
     die();
 }
 
-void move(int posX, int posY){
-    
+void move(void *arg){
+    int *argu;
+    argu = (int *)arg;
+    argu[0] = 0;
+    argu[1] = 1;
+    evaluateProcreate(void *arg);
 }
 
 void evaluarMovimiento(int posX, int posY){
     
 }
 
+
 void die(){
     printf("Hilo hijo finalizado.\n"); fflush(stdout);
     pthread_exit(NULL);
 }
 
-void procreate(int posX, int posY){
-    
+
+void evaluateProcreate(void *arg){
+    born(*arg);
 }
 
 void waymark(int posX, int posY){
@@ -49,6 +56,5 @@ void *routine(void *arg) {
 	printf("Hilo hijo ejecutando...\n"); fflush(stdout);
 	argu = (int *)arg;
 	printf("Hilo hijo: arg.1=%d arg.2=%d.\n", argu[0], argu[1]);
-	printf("Hilo hijo finalizado.\n"); fflush(stdout);
 	pthread_exit(NULL);
 }
