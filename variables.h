@@ -12,10 +12,10 @@
 
 int i=0, j=0, ch, cont;
 char as = '*', opc, jugarn;
-    
-int laberinto[FILA][COLUMNA];
+   
 FILE *arch;
 
+campo laberinto[FILA][COLUMNA];
 
 #endif	/* VARIABLES_H */
 
