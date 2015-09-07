@@ -13,10 +13,7 @@
 
 
 
-int main() {
-    int misargs[2];
-    misargs[0] = 0;
-    misargs[1] = 0;
+int main() {    
     printf("      hola \n \n");
     generarMatriz();
     leerArchivo();
