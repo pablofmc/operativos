@@ -7,6 +7,10 @@
 
 #ifndef HILO_H
 #define	HILO_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
 
 struct {
     int posX;
@@ -22,6 +26,7 @@ void die();
 void procreate(int posX, int posY);
 void waymark(int posX, int posY);
 void communicate();
+void *routine(void *arg);
 
 #endif	/* HILO_H */
 
