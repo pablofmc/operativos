@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/archivo.o \
+	${OBJECTDIR}/hilo.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/matriz.o
 
@@ -68,6 +69,11 @@ ${OBJECTDIR}/archivo.o: archivo.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/archivo.o archivo.c
+
+${OBJECTDIR}/hilo.o: hilo.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/hilo.o hilo.c
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
