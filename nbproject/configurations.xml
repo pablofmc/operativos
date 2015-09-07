@@ -15,7 +15,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>archivo.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>matriz.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -44,9 +46,13 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="archivo.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="archivo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="matriz.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="matriz.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -73,9 +79,13 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="archivo.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="archivo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="matriz.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="matriz.h" ex="false" tool="3" flavor2="0">
       </item>
