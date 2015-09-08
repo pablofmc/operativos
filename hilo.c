@@ -25,7 +25,6 @@ void born(){
     fflush(stdout);
     
     pthread_join(tid, NULL);
-    imprimirMatriz();
     
     /*
     int var = 0;
@@ -82,13 +81,13 @@ void movex(void *arg, int v){
         argu[2] = 2; // origen
         argu[3] = 3; // s
     
-        laberinto[argu[0]][argu[1]].valor = "#";
+        laberinto[argu[0]][argu[1]].valor = '#';
         laberinto[argu[0]][argu[1]].derecha = true;
     } else {
         argu[2] = 3; // origen
         argu[3] = 2; // s
     
-        laberinto[argu[0]][argu[1]].valor = "#";
+        laberinto[argu[0]][argu[1]].valor = '#';
         laberinto[argu[0]][argu[1]].izquierda = true;;
     }
     
@@ -117,8 +116,7 @@ void movey(void *arg, int v){
     pthread_mutex_lock (&mutexBuffer);
     imprimirMatriz();
     pthread_mutex_unlock (&mutexBuffer);
-    
-    die();
+ 
     //move((void*) argu);
 }
 
@@ -154,25 +152,20 @@ void die(){
 }
 
 
-void evaluateProcreate(void *arg){
-   
-}
-
 void *routine(void *arg) {
     int *argu;
     argu = (int*) arg;
     
-    laberinto[0][0].valor = '#';
-     
-    /* Se espera y se bloquea el mutex */
     pthread_mutex_lock (&mutexBuffer);
+    laberinto[0][0].valor = '#';
+    printf("kajhsk: %c",laberinto[0][1].valor);
     if (laberinto[1][0].valor != '*') {
-        argu[0] = 1;
-        argu[1] = 0;
+        argu[0] = 0;
+        argu[1] = 1;
         argu[2] = 2;
         argu[3] = 3;
         laberinto[0][0].derecha = true;  
-        laberinto[1][0].valor = '#';
+        laberinto[0][1].valor = '#';
         
         /* Se desbloquea el mutex */
         pthread_mutex_unlock (&mutexBuffer);
@@ -180,17 +173,16 @@ void *routine(void *arg) {
     }
     /* Se espera y se bloquea el mutex */
     pthread_mutex_lock (&mutexBuffer);
-    if (laberinto[0][1].valor != '*') {
-        argu[0] = 0;
-        argu[1] = 1;
+    if (laberinto[1][0].valor != '*') {
+        argu[0] = 1;
+        argu[1] = 0;
         argu[2] = 0;
         argu[3] = 1;
         laberinto[0][0].abajo = true;   
-        laberinto[1][0].valor = '#';
+        laberinto[0][1].valor = '#';
         /* Se desbloquea el mutex */
         pthread_mutex_unlock (&mutexBuffer);
-        printf("kjasdkljaklsdj");
-        movey((void *)argu, +1);       
+        //movey((void *)argu, +1);       
     }
 }
 
