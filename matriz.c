@@ -23,4 +23,5 @@ void imprimirMatriz() {
             }
             printf("\n");
     }
+    printf("-------------------------------\n");
 }

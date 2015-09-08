@@ -15,10 +15,14 @@
 
 int main() {    
     printf("      hola \n \n");
+    
     generarMatriz();
     leerArchivo();
     imprimirMatriz();
-    born((void*) misargs);
+    
+    pthread_mutex_init (&mutexBuffer, NULL);
+    
+    born();
 
     return EXIT_SUCCESS;
 }
