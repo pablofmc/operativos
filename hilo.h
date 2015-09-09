@@ -13,6 +13,7 @@ void movex(void *arg, int v);
 void die();
 void movey(void *arg, int v);
 void ways(void *arg);
+void crearHijoArribaAbajo(void *arg);
 void crearHijoArriba(void *arg);
 void crearHijoAbajo(void *arg);
 void crearHijoDerecha(void *arg);
