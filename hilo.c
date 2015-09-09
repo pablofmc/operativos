@@ -62,7 +62,7 @@ void *move(void *arg) {
         pthread_mutex_lock(&mutexBuffer);
         valor = laberinto[argu[0]][argu[1]+1].valor;
         pthread_mutex_unlock(&mutexBuffer);
-        if(valor != '*') {
+        if(valor != '*' && argu[1]+1) {
             movex((void*) argu, +1);
         } else {
             die();
@@ -71,7 +71,7 @@ void *move(void *arg) {
         pthread_mutex_lock(&mutexBuffer);
         valor = laberinto[argu[0]][argu[1]-1].valor;
         pthread_mutex_unlock(&mutexBuffer);
-        if(valor != '*') {
+        if(valor != '*' && argu[1]-1 >= 0) {
             movex((void*) argu, -1);
         } else {
             die();
@@ -80,7 +80,7 @@ void *move(void *arg) {
         pthread_mutex_lock(&mutexBuffer);
         valor = laberinto[argu[0]+1][argu[1]].valor;        
         pthread_mutex_unlock(&mutexBuffer);
-        if(valor != '*') {
+        if(valor != '*' && argu[0]+1 < FILA) {
             movey((void*) argu, +1);
         } else {
             die();
@@ -91,7 +91,7 @@ void *move(void *arg) {
         valor = laberinto[argu[0]-1][argu[1]].valor;
         
         pthread_mutex_unlock(&mutexBuffer);
-        if(valor != '*') {
+        if(valor != '*' && argu[0]-1 >= 0) {
             movey((void*) argu, -1);
         } else {
             die();
@@ -167,16 +167,22 @@ void ways(void *arg) {
         der = laberinto[argu[0]][argu[1]].derecha;
         pthread_mutex_unlock (&mutexBuffer);
         
-        if (antcol != '*' && argu[1]-1 >= 0) {            
-            if(izq == false) {
-                crearHijoIzquierda((void*) argu);
+        if (antcol != '*' && argu[1]-1 >= 0 && sgtcol != '*' && argu[1]+1 < COLUMNA) {            
+            if(izq == false && der == false) {
+                crearHijoIzqDer((void*) argu);
+            }
+        }else {
+            if (antcol != '*' && argu[1]-1 >= 0) {           
+                if(izq == false) {  
+                    crearHijoIzquierda((void*) argu);
+                }            
+            } else if (sgtcol != '*' && argu[1]+1 < COLUMNA) {
+                if(der == false) {  
+                    crearHijoDerecha((void*) argu);
+                } 
             }
         }
-        if (sgtcol != '*' && argu[1]+1 < COLUMNA) {           
-            if(der == false) {  
-                crearHijoDerecha((void*) argu);
-            }            
-        }
+        
     } else if (argu[2] == 2 && argu[3] == 3 || argu[2] == 3 && argu[3] == 2){
         
         
@@ -188,7 +194,7 @@ void ways(void *arg) {
         arriba = laberinto[argu[0]][argu[1]].arriba;
         abajo = laberinto[argu[0]][argu[1]].abajo;
         pthread_mutex_unlock (&mutexBuffer);
-        if (sgtfila == '*' && argu[0]+1 < FILA && antfila != '*' && argu[0]-1 >= 0) {
+        if (sgtfila != '*' && argu[0]+1 < FILA && antfila != '*' && argu[0]-1 >= 0) {
             if(abajo == false && arriba == false) {
                 crearHijoArribaAbajo((void*) argu);
             }
@@ -198,9 +204,9 @@ void ways(void *arg) {
                     crearHijoArriba((void*) argu);
                 }
             } else {
-               if (antfila != '*' && argu[0]-1 >= 0) {
-                    if(arriba == false) {
-                        crearHijoArriba((void*) argu);
+               if (sgtfila != '*' && argu[0]+1 <= FILA) {
+                    if(abajo == false) {
+                        crearHijoAbajo((void*) argu);
                     }
                 }
             } 
@@ -227,7 +233,7 @@ void *routine(void *arg) {
     printf("Fila 2: %c \n",laberinto[1][0].valor);
     if (valor != '*') {
         argu[0] = 0;
-        argu[1] = 1;
+        argu[1] = 0;
         argu[2] = 2;
         argu[3] = 3;
         pthread_mutex_lock (&mutexBuffer);
@@ -241,7 +247,7 @@ void *routine(void *arg) {
     pthread_mutex_unlock (&mutexBuffer);
     if (valor != '*') {
         
-        argu[0] = 1;
+        argu[0] = 0;
         argu[1] = 0;
         argu[2] = 0;
         argu[3] = 1;
@@ -295,6 +301,62 @@ void crearHijoArribaAbajo(void *arg) {
     pthread_mutex_lock(&mutexBuffer);
     laberinto[misarg[0]][misarg[1]].valor = '#';
     laberinto[misarg[0]-1][misarg[1]].arriba = true;
+    pthread_mutex_unlock(&mutexBuffer);    
+
+    void *move(void *misarg);
+
+    printf("Creando hilo arriba...\n");
+    fflush(stdout);
+    
+    
+    pthread_create(&tid[1], NULL, move, (void*) misarg);
+    
+    // fin abajo ------------------------------------------------------------
+    
+    pthread_join(tid[0], NULL);
+    pthread_join(tid[1], NULL);
+    
+    fflush(stdout);
+    
+}
+
+void crearHijoIzqDer(void *arg) {
+    int *argu;
+    argu = (int *)arg;
+    
+    pthread_t tid[2];
+    // izq ---------------------------------------------------------------
+    int misargs[4];
+    misargs[0] = argu[0]; //x
+    misargs[1] = argu[1]-1; //y
+    misargs[2] = 1; // origen
+    misargs[3] = 0; // s
+    
+    pthread_mutex_lock(&mutexBuffer);
+    laberinto[misargs[0]][misargs[1]].valor = '#';
+    laberinto[misargs[0]][misargs[1]+1].izquierda = true;
+    pthread_mutex_unlock(&mutexBuffer);
+    
+    
+
+    void *move(void *misargs);
+
+    printf("Creando hilo arriba...\n");
+    fflush(stdout);
+    
+    
+    pthread_create(&tid[0], NULL, move, (void*) misargs);
+    // fin arriba ------------------------------------------------------------
+    // inicio abajo ----------------------------------------------------------
+    int misarg[4];
+    misarg[0] = argu[0]; //x
+    misarg[1] = argu[1]+1; //y
+    misarg[2] = 0; // origen
+    misarg[3] = 1; // s
+    
+    pthread_mutex_lock(&mutexBuffer);
+    laberinto[misarg[0]][misarg[1]].valor = '#';
+    laberinto[misarg[0]][misarg[1]-1].derecha = true;
     pthread_mutex_unlock(&mutexBuffer);    
 
     void *move(void *misarg);
@@ -414,13 +476,9 @@ void crearHijoAbajo(void *arg) {
     misargs[3] = 1; // s
     
     printf("SSOOOY ABAJOO...");
-    printf("%d",misargs[0]);
-    printf("%d",misargs[1]);
-    printf("%d",misargs[2]);
-    printf("%d",misargs[3]);
     pthread_mutex_lock(&mutexBuffer);
-    laberinto[argu[0]][argu[1]].valor = '#';
-    laberinto[argu[0]-1][argu[1]].abajo = true;
+    laberinto[misargs[0]][misargs[1]].valor = '#';
+    laberinto[misargs[0]-1][misargs[1]].abajo = true;
     pthread_mutex_unlock(&mutexBuffer);
     
     pthread_t tid;
