@@ -2,8 +2,8 @@
 
 #ifndef VARIABLES_H
 #define	VARIABLES_H
-#define FILA 8
-#define COLUMNA 8
+#define FILA 10
+#define COLUMNA 10
 #include "estructura.h"
 #include <stdio.h>
 #include <stdlib.h>

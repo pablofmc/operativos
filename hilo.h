@@ -20,6 +20,7 @@ void crearHijoDerecha(void *arg);
 void crearHijoIzquierda(void *arg);
 void *routine(void *arg);
 void *move(void *arg);
+void crearHijoIzqDer(void *arg);
 
 #endif	/* HILO_H */
 

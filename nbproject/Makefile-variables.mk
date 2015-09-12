@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=laberinto
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/laberinto
+CND_ARTIFACT_NAME_Debug=operativos
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/operativos
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=laberinto.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/laberinto.tar
+CND_PACKAGE_NAME_Debug=operativos.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/operativos.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=laberinto
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/laberinto
+CND_ARTIFACT_NAME_Release=operativos
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/operativos
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=laberinto.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/laberinto.tar
+CND_PACKAGE_NAME_Release=operativos.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/operativos.tar
 #
 # include compiler specific variables
 #
